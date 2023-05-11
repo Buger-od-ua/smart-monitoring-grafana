@@ -1,13 +1,15 @@
 import { ResourceKey } from 'i18next';
 
 export const ENGLISH_US = 'en-US';
+export const RUSSIAN_RU = 'ru-RU';
+export const UKRAINIAN_UA = 'uk-UA';
 export const FRENCH_FRANCE = 'fr-FR';
 export const SPANISH_SPAIN = 'es-ES';
 export const GERMAN_GERMANY = 'de-DE';
 export const CHINESE_SIMPLIFIED = 'zh-Hans';
 export const PSEUDO_LOCALE = 'pseudo-LOCALE';
 
-export const DEFAULT_LANGUAGE = ENGLISH_US;
+export const DEFAULT_LANGUAGE = UKRAINIAN_UA;
 
 interface LanguageDefinitions {
   /** IETF language tag for the language e.g. en-US */
@@ -24,7 +26,19 @@ export const LANGUAGES: LanguageDefinitions[] = [
   {
     code: ENGLISH_US,
     name: 'English',
-    loader: () => Promise.resolve({}),
+    loader: () => import('../../../locales/en-US/grafana.json'),
+  },
+
+  {
+    code: UKRAINIAN_UA,
+    name: 'Українська',
+    loader: () => import('../../../locales/uk-UA/grafana.json'),
+  },
+
+  {
+    code: RUSSIAN_RU,
+    name: 'Русский',
+    loader: () => import('../../../locales/ru-RU/grafana.json'),
   },
 
   {

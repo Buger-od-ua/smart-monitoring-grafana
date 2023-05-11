@@ -96,7 +96,7 @@ export interface Props {
 }
 
 export const Footer = React.memo(({ customLinks }: Props) => {
-  const links = (customLinks || getFooterLinks()).concat(getVersionLinks());
+  const links = (customLinks || []);
 
   return (
     <footer className="footer">

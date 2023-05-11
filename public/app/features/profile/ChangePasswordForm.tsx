@@ -23,7 +23,7 @@ export const ChangePasswordForm = ({ user, onChangePassword, isSaving }: Props) 
     return <p>You cannot change password when signed in with LDAP or auth proxy.</p>;
   }
   if (authSource && disableLoginForm) {
-    return <p>Password cannot be changed here.</p>;
+    return <p>Пароль не можна змінити тут.</p>;
   }
 
   return (
@@ -36,11 +36,11 @@ export const ChangePasswordForm = ({ user, onChangePassword, isSaving }: Props) 
         {({ register, errors, getValues }) => {
           return (
             <>
-              <Field label="Old password" invalid={!!errors.oldPassword} error={errors?.oldPassword?.message}>
+              <Field label="Старий пароль" invalid={!!errors.oldPassword} error={errors?.oldPassword?.message}>
                 <PasswordField
                   id="current-password"
                   autoComplete="current-password"
-                  {...register('oldPassword', { required: 'Old password is required' })}
+                  {...register('oldPassword', { required: 'Обов\'язкове поле' })}
                 />
               </Field>
 
@@ -49,10 +49,10 @@ export const ChangePasswordForm = ({ user, onChangePassword, isSaving }: Props) 
                   id="new-password"
                   autoComplete="new-password"
                   {...register('newPassword', {
-                    required: 'New password is required',
+                    required: 'Обов\'язкове поле',
                     validate: {
-                      confirm: (v) => v === getValues().confirmNew || 'Passwords must match',
-                      old: (v) => v !== getValues().oldPassword || `New password can't be the same as the old one.`,
+                      confirm: (v) => v === getValues().confirmNew || 'Паролі не зпівпадають',
+                      old: (v) => v !== getValues().oldPassword || `Новий пароль повинен відрізнятися від старого.`,
                     },
                   })}
                 />
@@ -63,17 +63,17 @@ export const ChangePasswordForm = ({ user, onChangePassword, isSaving }: Props) 
                   id="confirm-new-password"
                   autoComplete="new-password"
                   {...register('confirmNew', {
-                    required: 'New password confirmation is required',
-                    validate: (v) => v === getValues().newPassword || 'Passwords must match',
+                    required: 'Обов\'язкове поле',
+                    validate: (v) => v === getValues().newPassword || 'Паролі не зпівпадають',
                   })}
                 />
               </Field>
               <HorizontalGroup>
                 <Button variant="primary" disabled={isSaving} type="submit">
-                  Change Password
+                  Змінити пароль
                 </Button>
                 <LinkButton variant="secondary" href={`${config.appSubUrl}/profile`} fill="outline">
-                  Cancel
+                  Скасувати
                 </LinkButton>
               </HorizontalGroup>
             </>

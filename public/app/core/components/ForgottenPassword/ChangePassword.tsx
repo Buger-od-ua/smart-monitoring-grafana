@@ -23,36 +23,36 @@ export const ChangePassword = ({ onSubmit, onSkip }: Props) => {
     <Form onSubmit={submit}>
       {({ errors, register, getValues }) => (
         <>
-          <Field label="New password" invalid={!!errors.newPassword} error={errors?.newPassword?.message}>
+          <Field label="Новий пароль" invalid={!!errors.newPassword} error={errors?.newPassword?.message}>
             <PasswordField
               id="new-password"
               autoFocus
               autoComplete="new-password"
-              {...register('newPassword', { required: 'New Password is required' })}
+              {...register('newPassword', { required: 'Пароль обов\'язковий' })}
             />
           </Field>
-          <Field label="Confirm new password" invalid={!!errors.confirmNew} error={errors?.confirmNew?.message}>
+          <Field label="Підтвердити пароль" invalid={!!errors.confirmNew} error={errors?.confirmNew?.message}>
             <PasswordField
               id="confirm-new-password"
               autoComplete="new-password"
               {...register('confirmNew', {
-                required: 'Confirmed Password is required',
-                validate: (v: string) => v === getValues().newPassword || 'Passwords must match!',
+                required: 'Пароль обов\'язковий',
+                validate: (v: string) => v === getValues().newPassword || 'Паролі повинні співпадати!',
               })}
             />
           </Field>
           <VerticalGroup>
             <Button type="submit" className={submitButton}>
-              Submit
+              Підтвердити
             </Button>
 
             {onSkip && (
               <Tooltip
-                content="If you skip you will be prompted to change password next time you log in."
+                content="Якщо пропустити зміну пароля зараз, ви зможете змінити його потім."
                 placement="bottom"
               >
                 <Button fill="text" onClick={onSkip} type="button" aria-label={selectors.pages.Login.skip}>
-                  Skip
+                  Пропустити
                 </Button>
               </Tooltip>
             )}

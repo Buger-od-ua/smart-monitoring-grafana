@@ -68,7 +68,7 @@ While the `t` function can technically be used outside of React functions (e.g, 
    1. Grafana OSS Crowdin project -> "dot dot dot" menu in top right -> Target languages
    2. Grafana OSS Crowdin project -> Integrations -> Github -> Sync Now
    3. If Crowdin's locale code is different from our IETF language tag, add a custom mapping in Project Settings -> Language mapping
-2. Update `public/app/core/internationalization/constants.ts` (add new constant, and add to `LOCALES`)
+2. Update `public/app/core/internationalization/constants.ts` (add new constant, and add to `LANGUAGES`)
 3. Update `public/locales/i18next-parser.config.js` to add the new locale to `locales`
 4. Run `yarn i18n:extract` and commit the result
 

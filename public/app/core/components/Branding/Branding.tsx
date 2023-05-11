@@ -59,8 +59,8 @@ export class Branding {
   static LoginBackground = LoginBackground;
   static MenuLogo = MenuLogo;
   static LoginBoxBackground = LoginBoxBackground;
-  static AppTitle = 'Grafana';
-  static LoginTitle = 'Welcome to Grafana';
+  static AppTitle = 'ТЕН | Смарт-Моніторинг';
+  static LoginTitle = 'Ласкаво просимо до Смарт-Моніторингу';
   static GetLoginSubTitle = (): null | string => {
     return null;
   };
